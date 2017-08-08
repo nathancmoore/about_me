@@ -1,2 +1,3 @@
 'use strict'
-alert("Suh, dude?")
+
+alert("Hello! I am an alert box!!");
