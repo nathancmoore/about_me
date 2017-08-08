@@ -1,3 +1,15 @@
 p {
   color:red;
 }
+
+h1 {
+  color:blue;
+}
+
+h2 {
+  left: 300px;
+}
+
+h3 {
+  left: 400px;
+}
