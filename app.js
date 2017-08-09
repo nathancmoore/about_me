@@ -3,8 +3,8 @@
 alert('Welcome to the EXTREME CHEDDAR guessing game!!');
 var score = 0;
 
-var username = prompt('What is your name?');
-console.log("The user\'s name is " + username + ".");
+var userName = prompt('What is your name?');
+console.log("The user\'s name is " + userName + ".");
 
 var tall = prompt('Is Nathan more than 20 feet tall?').toLowerCase();
 console.log(tall);
@@ -61,24 +61,43 @@ if (mommy == 'yes' || mommy == 'y') {
 }
 console.log('Current score: ' + score);
 
-var random = (Math.floor(Math.random() * 100)) + 1;
-console.log("The random number is " + random + ".");
+var correctNum = (Math.floor(Math.random() * 100)) + 1;
+console.log("The random number is " + correctNum + ".");
 
-for (var attempts = 0; attempts < 4; attempts++) {
-  var usernumber = prompt("Choose an integer between 1-100. You have " + (4-attempts) + " guess(es) remaining!");
-  console.log("The number selected by the user is " + usernumber + ".");
-  if (usernumber == random) {
+for (var attemptsNum = 0; attemptsNum < 4; attemptsNum++) {
+  var userNum = prompt("Choose an integer between 1-100. You have " + (4-attemptsNum) + " guess(es) remaining!");
+  console.log("The number selected by the user is " + userNum + ".");
+  if (userNum == correctNum) {
     alert("DINGDINGDING! Correct!")
     score++;
+    console.log('Current score: ' + score);
     break;
-  } else if (usernumber > 100 || usernumber < 1 || (usernumber - Math.floor(usernumber)) != 0) {
+  } else if (userNum > 100 || userNum < 1 || (userNum - Math.floor(userNum)) != 0) {
     alert("Invalid entry! Try again!")
     continue;
-  } else if (random > usernumber) {
+  } else if (correctNum > userNum) {
     alert("Too Low! Try again.")
-  } else if (random < usernumber) {
+  } else if (correctNum < userNum) {
     alert("Too High! Try again.")
   }
 }
 
-alert('Your final score is ' + score + ' out of 5!');
+var correctCar = ["honda", "toyota", "ford", "volvo"];
+console.log("Correct car brands are " + correctCar + ".")
+
+for (var attemptsCar = 0; attemptsCar < 6; attemptsCar++) {
+  var userCar = prompt("Now for the ultimate challenge: try to guess one of the brands of car that I have owned? You have " + (6-attemptsCar) + " guesses remaining!");
+  console.log("The user guessed " + userCar + ".")
+  if (correctCar.includes(userCar)) {
+    alert("DINGDINGDING! Correct! The possible correct answers were: Toyota, Volvo, Ford, and Honda.")
+    score++;
+    console.log('Current score: ' + score);
+    break;
+  } else {
+    alert("Incorrect! Guess again!")
+  }
+
+}
+
+
+alert('Thanks for playing, ' + userName + " !" + 'Your final score is ' + score + ' out of 7!');
