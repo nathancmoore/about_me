@@ -71,7 +71,7 @@ for (var attempts = 0; attempts < 4; attempts++) {
     alert("DINGDINGDING! Correct!")
     score++;
     break;
-  } else if (usernumber > 100 || usernumber < 1 || usernumber === NaN) {
+  } else if (usernumber > 100 || usernumber < 1 || (usernumber - Math.floor(usernumber)) != 0) {
     alert("Invalid entry! Try again!")
     continue;
   } else if (random > usernumber) {
