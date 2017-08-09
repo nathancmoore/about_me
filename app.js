@@ -2,6 +2,10 @@
 
 alert('Welcome to the EXTREME CHEDDAR guessing game!!');
 var score = 0;
+
+var username = prompt('What is your name?');
+console.log("The user\'s name is " + username + ".");
+
 var tall = prompt('Is Nathan more than 20 feet tall?').toLowerCase();
 console.log(tall);
 if (tall == 'yes' || tall == 'y') {
@@ -56,5 +60,9 @@ if (mommy == 'yes' || mommy == 'y') {
   score++;
 }
 console.log('Current score: ' + score);
+
+var random = (Math.floor(Math.random() * 100)) + 1
+console.log("The random number is " + random + ".")
+
 
 alert('Your final score is ' + score + ' out of 5!');
