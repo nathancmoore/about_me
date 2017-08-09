@@ -23,33 +23,33 @@ p {
 }
 
 h1 {
-  color:green;
+  color: green;
 }
 
 h2 {
-  color:pink;
+  color: pink;
 }
 
 h3 {
-  color:orange;
+  color: orange;
 }
 
 #circle {
   background-color: purple;
   border-radius: 100%;
-  width:400px;
-  height:400px;
-  position:fixed;
-  right:400px;
-  bottom:100px;
-  z-index:4;
+  width: 400px;
+  height: 400px;
+  position: fixed;
+  right: 400px;
+  bottom: 100px;
+  z-index: 4;
 }
 
 #yeah {
-  color:white;
+  color: white;
   font-size: 55px;
   position:fixed;
-  right:450px;
-  bottom:220px;
-  z-index:5;
+  right: 450px;
+  bottom: 220px;
+  z-index: 5;
 }
