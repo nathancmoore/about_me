@@ -61,8 +61,24 @@ if (mommy == 'yes' || mommy == 'y') {
 }
 console.log('Current score: ' + score);
 
-var random = (Math.floor(Math.random() * 100)) + 1
-console.log("The random number is " + random + ".")
+var random = (Math.floor(Math.random() * 100)) + 1;
+console.log("The random number is " + random + ".");
 
+for (var attempts = 0; attempts < 4; attempts++) {
+  var usernumber = prompt("Choose an integer between 1-100. You have " + (4-attempts) + " guess(es) remaining!");
+  console.log("The number selected by the user is " + usernumber + ".");
+  if (usernumber == random) {
+    alert("DINGDINGDING! Correct!")
+    score++;
+    break;
+  } else if (usernumber > 100 || usernumber < 1 || usernumber === NaN) {
+    alert("Invalid entry! Try again!")
+    continue;
+  } else if (random > usernumber) {
+    alert("Too Low! Try again.")
+  } else if (random < usernumber) {
+    alert("Too High! Try again.")
+  }
+}
 
 alert('Your final score is ' + score + ' out of 5!');
