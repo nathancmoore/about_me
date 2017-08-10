@@ -6,96 +6,82 @@ var score = 0;
 var userName = prompt('What is your name?');
 console.log('The user\'s name is ' + userName + '.');
 
-var tall = prompt('Is Nathan more than 20 feet tall?').toLowerCase();
-console.log(tall);
-if (tall == 'yes' || tall == 'y') {
-  alert('INCORRECT!');
-}
-if (tall == 'no' || tall == 'n') {
-  alert('CORRECT!');
-  score++;
-}
-console.log('Current score: ' + score);
+var questions = ['Is Nathan more than 20 feet tall?', 'Does Nathan love pickles?', 'Is Nathan secretly a vampire?', 'Can Nathan safely pilot a helicopter?', 'Does Nathan love his mommy?'];
 
-var pickles = prompt('Does Nathan love pickles?').toLowerCase();
-console.log(pickles);
-if (pickles == 'no' || pickles == 'n') {
-  alert('INCORRECT!');
-}
-if (pickles == 'yes' || pickles == 'y') {
-  alert('CORRECT!');
-  score++;
-}
-console.log('Current score: ' + score);
+var anwsers1 = ['no', 'n', 'yes', 'y', 'no', 'n','no', 'n', 'yes', 'y'];
 
-var vampire = prompt('Is Nathan secretly a vampire?').toLowerCase();
-console.log(vampire);
-if (vampire == 'yes' || vampire == 'y') {
-  alert('INCORRECT!');
-}
-if (vampire == 'no' || vampire == 'n') {
-  alert('CORRECT!');
-  score++;
-}
-console.log('Current score: ' + score);
+var anwsers3 = ['honda', 'toyota', 'ford', 'volvo'];
 
-var helicopter = prompt('Can Nathan safely pilot a helicopter?').toLowerCase();
-console.log(helicopter);
-if (helicopter == 'yes' || helicopter == 'y') {
-  alert('INCORRECT!');
-}
-if (helicopter == 'no' || helicopter == 'n') {
-  alert('CORRECT!');
-  score++;
-}
-console.log('Current score: ' + score);
+var responses1 = ['INCORRECT!', 'CORRECT!'];
 
-var mommy = prompt('Does Nathan love his mommy?').toLowerCase();
-console.log(mommy);
-if (mommy == 'no' || mommy == 'n') {
-  alert('INCORRECT!');
-}
-if (mommy == 'yes' || mommy == 'y') {
-  alert('CORRECT!');
-  score++;
-}
-console.log('Current score: ' + score);
+var responses2 = ['DINGDINGDING! Correct!', 'Invalid entry! Try again!', 'Too Low! Try again.','Too High! Try again.'];
+
+var userInput1;
+
+var userInput2;
+
+var userInput3;
 
 var correctNum = (Math.floor(Math.random() * 100)) + 1;
-console.log('The random number is ' + correctNum + '.');
-
-for (var attemptsNum = 0; attemptsNum < 4; attemptsNum++) {
-  var userNum = prompt('Choose an integer between 1-100. You have ' + (4 - attemptsNum) + ' guess(es) remaining!');
-  console.log('The number selected by the user is ' + userNum + '.');
-  if (userNum == correctNum) {
-    alert('DINGDINGDING! Correct!');
-    score++;
-    console.log('Current score: ' + score);
-    break;
-  } else if (userNum > 100 || userNum < 1 || (userNum - Math.floor(userNum)) != 0) {
-    alert('Invalid entry! Try again!');
-    continue;
-  } else if (correctNum > userNum) {
-    alert('Too Low! Try again.');
-  } else if (correctNum < userNum) {
-    alert('Too High! Try again.');
-  }
-}
 
 var correctCar = ['honda', 'toyota', 'ford', 'volvo'];
-console.log('Correct car brands are ' + correctCar + '.');
 
-for (var attemptsCar = 0; attemptsCar < 6; attemptsCar++) {
-  var userCar = prompt('Now for the ultimate challenge: try to guess one of the brands of car that I have owned? You have " + (6-attemptsCar) + " guesses remaining!');
-  console.log('The user guessed ' + userCar + '.');
-  if (correctCar.includes(userCar)) {
-    alert('DINGDINGDING! Correct! The possible correct answers were: Toyota, Volvo, Ford, and Honda.');
-    score++;
-    console.log('Current score: ' + score);
-    break;
-  } else {
-    alert('Incorrect! Guess again!');
+function quizOne (userInput1) {
+  for (var qcount = 0; qcount < 5; qcount ++) {
+    userInput1 = prompt(questions[qcount]);
+    console.log(userInput1);
+    console.log(userInput1.toLowerCase());
+    console.log('qcount is ' + qcount);
+    if (userInput1.toLowerCase() === anwsers1[qcount * 2] || userInput1.toLowerCase() === anwsers1[qcount * 2 + 1]) {
+      alert(responses1[1]);
+      score++;
+      console.log('Current score: ' + score);
+    }
+    else {
+      alert(responses1[0]);
+    }
   }
-
 }
-alert('Thanks for playing, ' + userName + ' !' + 'Your final score is ' + score + ' out of 7!');
+
+function quizTwo (userInput2) {
+  console.log('The random number is ' + correctNum + '.');
+  for (var attemptsNum = 0; attemptsNum < 4; attemptsNum++) {
+    var userInput2 = prompt('Choose an integer between 1-100. You have ' + (4 - attemptsNum) + ' guess(es) remaining!');
+    console.log('The number selected by the user is ' + userInput2 + '.');
+    if (userInput2 == correctNum) {
+      alert(responses2[0]);
+      score++;
+      console.log('Current score: ' + score);
+      break;
+    } else if (userInput2 > 100 || userInput2 < 1 || (userInput2 - Math.floor(userInput2)) != 0) {
+      alert(responses2[1]);
+      continue;
+    } else if (correctNum > userInput2) {
+      alert(responses2[2]);
+    } else if (correctNum < userInput2) {
+      alert(responses2[3]);
+    }
+  }
+}
+
+function quizThree (userInput3) {
+  console.log('Correct car brands are ' + anwsers3 + '.');
+
+  for (var attemptsCar = 0; attemptsCar < 6; attemptsCar++) {
+    var userInput3 = prompt('Now for the ultimate challenge: try to guess one of the brands of car that I have owned? You have ' + (6 - attemptsCar) + ' guesses remaining!');
+    console.log('The user guessed ' + userInput3 + '.');
+    if (anwsers3.includes(userInput3.toLowerCase())) {
+      alert('DINGDINGDING! Correct! The possible correct answers were: Toyota, Volvo, Ford, and Honda.');
+      score++;
+      console.log('Current score: ' + score);
+      break;
+    } else {
+      alert('Incorrect! Guess again!');
+    }
+  }
+}
+
+quizOne();
+quizTwo();
+quizThree();
+alert('Thanks for playing, ' + userName + '!' + ' Your final score is ' + score + ' out of 7!');
