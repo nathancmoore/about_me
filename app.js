@@ -8,7 +8,9 @@ console.log('The user\'s name is ' + userName + '.');
 
 var questions = ['Is Nathan more than 20 feet tall?', 'Does Nathan love pickles?', 'Is Nathan secretly a vampire?', 'Can Nathan safely pilot a helicopter?', 'Does Nathan love his mommy?'];
 
-var answers = ['no', 'n', 'yes', 'y', 'no', 'n','no', 'n', 'yes', 'y'];
+var anwsers1 = ['no', 'n', 'yes', 'y', 'no', 'n','no', 'n', 'yes', 'y'];
+
+var anwsers3 = ['honda', 'toyota', 'ford', 'volvo'];
 
 var responses1 = ['INCORRECT!', 'CORRECT!'];
 
@@ -18,7 +20,11 @@ var userInput1;
 
 var userInput2;
 
+var userInput3;
+
 var correctNum = (Math.floor(Math.random() * 100)) + 1;
+
+var correctCar = ['honda', 'toyota', 'ford', 'volvo'];
 
 function quizOne (userInput1) {
   for (var qcount = 0; qcount < 5; qcount ++) {
@@ -28,7 +34,7 @@ function quizOne (userInput1) {
     console.log(userInput1.toLowerCase());
     console.log('acount is ' + acount);
     console.log('qcount is ' + qcount);
-    if (userInput1.toLowerCase() === answers[acount] || userInput1.toLowerCase() === answers[acount + 1]) {
+    if (userInput1.toLowerCase() === anwsers1[acount] || userInput1.toLowerCase() === anwsers1[acount + 1]) {
       alert(responses1[1]);
       score++;
       console.log('Current score: ' + score);
@@ -60,24 +66,24 @@ function quizTwo (userInput2) {
   }
 }
 
+function quizThree (userInput3) {
+  console.log('Correct car brands are ' + anwsers3 + '.');
+
+  for (var attemptsCar = 0; attemptsCar < 6; attemptsCar++) {
+    var userInput3 = prompt('Now for the ultimate challenge: try to guess one of the brands of car that I have owned? You have ' + (6 - attemptsCar) + ' guesses remaining!');
+    console.log('The user guessed ' + userInput3 + '.');
+    if (anwsers3.includes(userInput3.toLowerCase())) {
+      alert('DINGDINGDING! Correct! The possible correct answers were: Toyota, Volvo, Ford, and Honda.');
+      score++;
+      console.log('Current score: ' + score);
+      break;
+    } else {
+      alert('Incorrect! Guess again!');
+    }
+  }
+}
+
 quizOne();
 quizTwo();
-
-//
-// var correctCar = ['honda', 'toyota', 'ford', 'volvo'];
-// console.log('Correct car brands are ' + correctCar + '.');
-//
-// for (var attemptsCar = 0; attemptsCar < 6; attemptsCar++) {
-//   var userCar = prompt('Now for the ultimate challenge: try to guess one of the brands of car that I have owned? You have " + (6-attemptsCar) + " guesses remaining!');
-//   console.log('The user guessed ' + userCar + '.');
-//   if (correctCar.includes(userCar)) {
-//     alert('DINGDINGDING! Correct! The possible correct answers were: Toyota, Volvo, Ford, and Honda.');
-//     score++;
-//     console.log('Current score: ' + score);
-//     break;
-//   } else {
-//     alert('Incorrect! Guess again!');
-//   }
-//
-// }
-// alert('Thanks for playing, ' + userName + ' !' + 'Your final score is ' + score + ' out of 7!');
+quizThree();
+alert('Thanks for playing, ' + userName + '!' + ' Your final score is ' + score + ' out of 7!');
