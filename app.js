@@ -28,13 +28,11 @@ var correctCar = ['honda', 'toyota', 'ford', 'volvo'];
 
 function quizOne (userInput1) {
   for (var qcount = 0; qcount < 5; qcount ++) {
-    var acount = qcount * 2;
     userInput1 = prompt(questions[qcount]);
     console.log(userInput1);
     console.log(userInput1.toLowerCase());
-    console.log('acount is ' + acount);
     console.log('qcount is ' + qcount);
-    if (userInput1.toLowerCase() === anwsers1[acount] || userInput1.toLowerCase() === anwsers1[acount + 1]) {
+    if (userInput1.toLowerCase() === anwsers1[qcount * 2] || userInput1.toLowerCase() === anwsers1[qcount * 2 + 1]) {
       alert(responses1[1]);
       score++;
       console.log('Current score: ' + score);
