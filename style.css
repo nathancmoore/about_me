@@ -1,3 +1,8 @@
+* {
+  background-color: lightGrey;
+  border-style: border-box;
+}
+
 p {
   color:red;
 }
